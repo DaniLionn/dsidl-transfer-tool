@@ -56,7 +56,7 @@ const baseHTML = `<!DOCTYPE html>
     Upload a file and it'll be turned into a QR Code that you can scan with dsidl to download to your DSi!
   </p>
   <p>
-    Uploaded files are deleted after being scanned and sent over.
+    Uploaded files are deleted after being scanned and sent over, so QR Codes are one use only.
   </p>
   </div>
   <br>`;
