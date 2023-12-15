@@ -67,6 +67,7 @@ const htmlFinalPart = `<div class="center">
       <button type="submit">Upload</button>
     </form>
   </div>
+  <br><br><br><br>
   <div class="center">  
     <p>Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo</a>!</p>
   </div>
