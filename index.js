@@ -20,9 +20,16 @@ const baseHTML = `<!DOCTYPE html>
        padding-bottom: 10px;
        padding-left: 10px;
      }
+
+     .center {
+     margin: auto;
+     width: 80%;
+     }
+
     body {
       background-color: #000000;
       } 
+
       p, a {
         color: #FFFFFF;
         font-family: Verdana;
@@ -32,17 +39,18 @@ const baseHTML = `<!DOCTYPE html>
         font-family: Verdana;  
         display: inline-block;
         }
-        .center {
-        margin: auto;
-        width: 80%;
-        }
   </style>
 </head>
 <body>
   <div class="center">
   <h3 style="text-align:center;">
-  <img src="https://db.universal-team.net/assets/images/icons/dsidl.gif" width="25" height="25" style="padding-right: 7px" >QR codes are meant to be scanned with the <a href="https://github.com/Epicpkmn11/dsidl" target="_blank">dsidl homebrew app</a> for the DSi. 
-    <img src="https://db.universal-team.net/assets/images/icons/dsidl.gif" width="25" height="25" style="padding-left: 5px" >
+    <img src="https://db.universal-team.net/assets/images/icons/dsidl.gif" width="25" height="25" style="padding-right: 7px">
+    QR codes are meant to be scanned with the 
+    <a href="https://github.com/Epicpkmn11/dsidl" target="_blank">
+      dsidl homebrew app
+    </a> 
+    for the DSi. 
+    <img src="https://db.universal-team.net/assets/images/icons/dsidl.gif" width="25" height="25" style="padding-left: 5px">
   </h3>
   <p>
     Upload a file and it'll be turned into a QR Code that you can scan with dsidl to download to your DSi!
@@ -59,8 +67,9 @@ const htmlFinalPart = `<div class="center">
       <button type="submit">Upload</button>
     </form>
   </div>
-  <p>Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo</a>!
-  </p>
+  <div class="center">  
+    <p>Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo</a>!</p>
+  </div>
 </body>`;
 var finalHTML = baseHTML;
 
