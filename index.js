@@ -95,10 +95,6 @@ app.post("/upload", upload.single("file"), (req, res) => {
     createQRCode(encodeURI(uploadedFile.filename)).then(() => {
       res.redirect(`${baseURL}?resetPage=false`);
     });
-
-    setTimeout(() => {
-      fs.promises.unlink(filePath);
-    }, 3600 * 1000);
   } else {
     res.redirect(baseURL);
   }
@@ -116,20 +112,18 @@ app.get("/", function (req, res) {
 
     res.send(
       finalHTML +
-        `   <form action="/upload" method="post" enctype="multipart/form-data">
+        `   <div class="center"> <form action="/upload" method="post" enctype="multipart/form-data">
     <input type="file" name="file" />
     <button type="submit">Upload</button>
-  </form>` +
-        " </body>",
+  </form></div></body>`,
     );
   } else {
     res.send(
       finalHTML +
-        `   <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" />
-    <button type="submit">Upload</button>
-  </form>` +
-        " </body>",
+        `   <div class="center"> <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Upload</button>
+      </form></div></body>`,
     );
   }
 });
@@ -140,8 +134,8 @@ app.listen(80, function (err) {
 });
 
 //delete any leftover uploaded files on startup
-fs.readdir("./uploads", function(file) {
+fs.readdir("./uploads", function (file) {
   if (file) {
-    fs.promises.unlink(file)
+    fs.promises.unlink(file);
   }
-})
+});
