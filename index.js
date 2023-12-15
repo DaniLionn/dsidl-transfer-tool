@@ -138,4 +138,5 @@ app.get("/", function (req, res) {
 
 app.listen(80, function (err) {
   if (err) console.log(err);
+  console.log("Server listening on port 80");
 });
