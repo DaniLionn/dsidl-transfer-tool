@@ -25,7 +25,6 @@ const options = {
 };
 
 function createQRCode(file) {
-
   return new Promise((resolve, reject) => {
     QRCode.toDataURL(
       JSON.stringify([
@@ -56,7 +55,7 @@ function createQRCode(file) {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploads/"); 
+    cb(null, "./uploads/");
   },
   filename: function (req, file, cb) {
     console.log(file);
@@ -82,6 +81,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
           console.log(err);
         } else {
           console.log("Sent:", filePath);
+          fs.promises.unlink(filePath);
         }
       });
     });
@@ -89,8 +89,6 @@ app.post("/upload", upload.single("file"), (req, res) => {
     app.get(encodeURI(`/${uploadedFile.filename}`), function (req, res) {
       console.log("File sent!");
 
-      fs.promises.unlink(filePath)
-      
       res.send("file sent");
     });
 
@@ -140,3 +138,10 @@ app.listen(80, function (err) {
   if (err) console.log(err);
   console.log("Server listening on port 80");
 });
+
+//delete any leftover uploaded files on startup
+fs.readdir("./uploads", function(file) {
+  if (file) {
+    fs.promises.unlink(file)
+  }
+})
