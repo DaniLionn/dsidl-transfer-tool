@@ -53,7 +53,7 @@ const baseHTML = `<!DOCTYPE html>
   </div>
   <br>`;
 
-const htmlFinalPart =  `<div class="center"> 
+const htmlFinalPart = `<div class="center"> 
     <form action="/upload" method="post" enctype="multipart/form-data">
       <input type="file" name="file" />
       <button type="submit">Upload</button>
@@ -61,7 +61,7 @@ const htmlFinalPart =  `<div class="center">
   </div>
   <p>Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo</a>!
   </p>
-</body>`
+</body>`;
 var finalHTML = baseHTML;
 
 const options = {
@@ -148,13 +148,9 @@ app.get("/", function (req, res) {
   if (!resetPage || resetPage == "true") {
     finalHTML = baseHTML;
 
-    res.send(
-      finalHTML + htmlFinalPart,
-    );
+    res.send(finalHTML + htmlFinalPart);
   } else {
-    res.send(
-      finalHTML + htmlFinalPart,
-    );
+    res.send(finalHTML + htmlFinalPart);
   }
 });
 
