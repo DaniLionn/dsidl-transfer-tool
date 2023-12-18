@@ -128,7 +128,7 @@ function createQRCode(file) {
           reject("Error generating QR code");
         } else {
           const qrCodeHtml = `<div id="${file}" class="qr"><p style="text-align:center">Download ${file}:</p><br><img src="${url}" alt="QR Code" width="312px" height="312px"</div>`;
-//"<form action="/clearQR?file=${file}&url=${url}" method="get" enctype="multipart/form-data"><button type="submit" id="clearQR" >Clear</button></form>"
+          //"<form action="/clearQR?file=${file}&url=${url}" method="get" enctype="multipart/form-data"><button type="submit" id="clearQR" >Clear</button></form>"
           finalHTML += qrCodeHtml;
 
           resolve();
@@ -188,11 +188,11 @@ app.get("/test", function (req, res) {
 //   let url = req.query.url
 
 //   console.log(file,url)
-  
+
 //   const qrCodeHtml = `<div id="${file}" class="qr"><p style="text-align:center">Download ${file}:</p><br><img src="${url}" alt="QR Code" width="312px" height="312px"><form action="/clearQR?file=${file}" method="post" enctype="multipart/form-data"><button type="submit" id="clearQR" onclick="clearQR()">Clear</button></form></div>`;
 
 //   console.log(qrCodeHtml, finalHTML.includes(qrCodeHtml))
-  
+
 //   if (finalHTML.includes(qrCodeHtml)) {
 //     finalHTML = finalHTML.replace(qrCodeHtml, "");
 //     const filePath = path.join("./uploads", file);
@@ -221,15 +221,12 @@ app.listen(80, function (err) {
 
 //delete any leftover uploaded files on startup
 fs.readdir("./uploads", function (err, files) {
-
   if (err) {
-    console.log(err)
+    console.log(err);
   } else {
     files.forEach((file) => {
       const filePath = path.join("./uploads", file);
       fs.promises.unlink(filePath);
-    })
+    });
   }
 });
-
-
