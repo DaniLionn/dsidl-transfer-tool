@@ -1,4 +1,4 @@
-# dsidl-download-tool
+# dsidl-transfer-tool
 
 A simple tool that lets you upload files and turns them into QR Codes so you can download them using the [dsidl homebrew](https://github.com/Epicpkmn11/dsidl) for the DSi.
 
