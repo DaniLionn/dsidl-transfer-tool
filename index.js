@@ -30,7 +30,7 @@ const baseHTML = `<!DOCTYPE html>
       background-color: #000000;
       } 
 
-      p, a {
+      p, a, form {
         color: #FFFFFF;
         font-family: Verdana;
         } 
@@ -38,6 +38,9 @@ const baseHTML = `<!DOCTYPE html>
         color: #FFFFFF;
         font-family: Verdana;  
         display: inline-block;
+        }
+        #uploadButton, #clearButton {
+         display: none;
         }
   </style>
 </head>
@@ -63,9 +66,42 @@ const baseHTML = `<!DOCTYPE html>
 
 const htmlFinalPart = `<div class="center"> 
     <form action="/upload" method="post" enctype="multipart/form-data">
-      <input type="file" name="file" />
-      <button type="submit">Upload</button>
+     <input type="file" id="fileInput" name="file" onchange="showUploadButton()">
+      <button type="submit" id="uploadButton">Upload</button>
+      <button type="button" id="clearButton" onclick="clearFileInput()">Clear Selection</button>
+
     </form>
+
+<script>
+
+  function showUploadButton() {
+    const fileInput = document.getElementById('fileInput');
+    const uploadButton = document.getElementById('uploadButton');
+    const clearButton = document.getElementById('clearButton');
+
+    if (fileInput.files.length > 0) {
+
+      uploadButton.style.display = 'block';
+      clearButton.style.display = 'block';
+    } else {
+
+      uploadButton.style.display = 'none';
+      clearButton.style.display = 'none';
+    }
+  }
+
+  function clearFileInput() {
+    const fileInput = document.getElementById('fileInput');
+    const uploadButton = document.getElementById('uploadButton');
+    const clearButton = document.getElementById('clearButton');
+
+    fileInput.value = '';
+
+    uploadButton.style.display = 'none';
+     clearButton.style.display = 'none';
+  }
+</script>
+    
   </div>
   <br><br><br><br>
   <div class="center">  
@@ -91,13 +127,8 @@ function createQRCode(file) {
         if (err) {
           reject("Error generating QR code");
         } else {
-          const qrCodeHtml = `
-  <div id="${file}" class="qr">
-    <p style="text-align:center">Download ${file}:</p>
-    <br>
-    <img src="${url}" alt="QR Code" width="312px" height="312px">
-  </div>`;
-
+          const qrCodeHtml = `<div id="${file}" class="qr"><p style="text-align:center">Download ${file}:</p><br><img src="${url}" alt="QR Code" width="312px" height="312px"</div>`;
+//"<form action="/clearQR?file=${file}&url=${url}" method="get" enctype="multipart/form-data"><button type="submit" id="clearQR" >Clear</button></form>"
           finalHTML += qrCodeHtml;
 
           resolve();
@@ -152,6 +183,25 @@ app.get("/test", function (req, res) {
   res.send("OK");
 });
 
+// app.get("/clearQR", function (req, res) {
+//   let file = req.query.file
+//   let url = req.query.url
+
+//   console.log(file,url)
+  
+//   const qrCodeHtml = `<div id="${file}" class="qr"><p style="text-align:center">Download ${file}:</p><br><img src="${url}" alt="QR Code" width="312px" height="312px"><form action="/clearQR?file=${file}" method="post" enctype="multipart/form-data"><button type="submit" id="clearQR" onclick="clearQR()">Clear</button></form></div>`;
+
+//   console.log(qrCodeHtml, finalHTML.includes(qrCodeHtml))
+  
+//   if (finalHTML.includes(qrCodeHtml)) {
+//     finalHTML = finalHTML.replace(qrCodeHtml, "");
+//     const filePath = path.join("./uploads", file);
+//      fs.promises.unlink(filePath);
+//   }
+
+//   res.redirect(`${baseURL}?resetPage=false`);
+// });
+
 app.get("/", function (req, res) {
   let resetPage = req.query.resetPage;
 
@@ -170,8 +220,16 @@ app.listen(80, function (err) {
 });
 
 //delete any leftover uploaded files on startup
-fs.readdir("./uploads", function (file) {
-  if (file) {
-    fs.promises.unlink(file);
+fs.readdir("./uploads", function (err, files) {
+
+  if (err) {
+    console.log(err)
+  } else {
+    files.forEach((file) => {
+      const filePath = path.join("./uploads", file);
+      fs.promises.unlink(filePath);
+    })
   }
 });
+
+
