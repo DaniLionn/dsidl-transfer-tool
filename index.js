@@ -11,7 +11,7 @@ const baseURL = "https://dsidl-transfer-tool.dani-lionn.repl.co/";
 const baseHTML = `<!DOCTYPE html>
 <head>
   <title>dsidl transfer tool</title>
-  <link rel="icon" type="image/gif" href="https://db.universal-team.net/assets/images/icons/dsidl.gif">
+  <link rel="icon" type="image/jpeg" href="https://danilionn.github.io/danis-bot-website/assets/images/dsidl-transfer-tool-icon.png">
   <style>
     .qr {
        display: inline-block;
@@ -47,13 +47,13 @@ const baseHTML = `<!DOCTYPE html>
 <body>
   <div class="center">
   <h3 style="text-align:center;">
-    <img src="https://db.universal-team.net/assets/images/icons/dsidl.gif" width="25" height="25" style="padding-right: 7px">
+  <img src="https://danilionn.github.io/danis-bot-website/assets/images/dsidl-transfer-tool-icon.png" width="32" height="32" style="padding-left: 5px">
     QR codes are meant to be scanned with the 
     <a href="https://github.com/Epicpkmn11/dsidl" target="_blank">
       dsidl homebrew app
     </a> 
     for the DSi. 
-    <img src="https://db.universal-team.net/assets/images/icons/dsidl.gif" width="25" height="25" style="padding-left: 5px">
+    <img src="https://danilionn.github.io/danis-bot-website/assets/images/dsidl-transfer-tool-icon.png" width="32" height="32" style="padding-left: 5px">
   </h3>
   <p>
     Upload a file and it'll be turned into a QR Code that you can scan with dsidl to download to your DSi!
@@ -105,7 +105,7 @@ const htmlFinalPart = `<div class="center">
   </div>
   <br><br><br><br>
   <div class="center">  
-    <p>Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo</a>!</p>
+    <p>Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo!  <img src="https://danilionn.github.io/danis-bot-website/assets/images/github-mark-white.png" width="25" height="25" style="padding-left: 5px"></a></p>
   </div>
 </body>`;
 var finalHTML = baseHTML;
