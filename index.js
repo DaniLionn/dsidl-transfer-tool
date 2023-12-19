@@ -13,6 +13,12 @@ const baseHTML = `<!DOCTYPE html>
   <title>dsidl transfer tool</title>
   <link rel="icon" type="image/jpeg" href="https://danilionn.github.io/danis-bot-website/assets/images/dsidl-transfer-tool-icon.png">
   <style>
+
+  @font-face {
+      font-family: 'Pixel';
+      src:  url('https://danilionn.github.io/danis-bot-website/assets/fonts/JSE_Commodore64.woff2') format('woff2'),
+            url('https://danilionn.github.io/danis-bot-website/assets/fonts/JSE_Commodore64.woff') format('woff');
+  }  
     .qr {
        display: inline-block;
        padding-top: 10px;
@@ -32,16 +38,18 @@ const baseHTML = `<!DOCTYPE html>
 
       p, a, form {
         color: #FFFFFF;
-        font-family: Verdana;
+        font-family: Pixel;
+     ;
         } 
         h3 {
         color: #FFFFFF;
-        font-family: Verdana;  
+        font-family: Pixel;  
         display: inline-block;
         }
         #uploadButton, #clearButton {
          display: none;
         }
+
   </style>
 </head>
 <body>
@@ -105,7 +113,7 @@ const htmlFinalPart = `<div class="center">
   </div>
   <br><br><br><br>
   <div class="center">  
-    <p>Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo!  <img src="https://danilionn.github.io/danis-bot-website/assets/images/github-mark-white.png" width="25" height="25" style="padding-left: 5px"></a></p>
+    <p>Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo!<img src="https://danilionn.github.io/danis-bot-website/assets/images/github-mark-white.png" width="25" height="25" style="padding-left: 5px"></a></p>
   </div>
 </body>`;
 var finalHTML = baseHTML;
