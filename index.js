@@ -67,7 +67,7 @@ const baseHTML = `<!DOCTYPE html>
 const htmlFinalPart = `<div class="center"> 
     <form action="/upload" method="post" enctype="multipart/form-data">
      <input type="file" id="fileInput" name="file" onchange="showUploadButton()">
-      <button type="submit" id="uploadButton">Upload</button>
+      <button type="submit" id="uploadButton" >Upload</button>
       <button type="button" id="clearButton" onclick="clearFileInput()">Clear Selection</button>
 
     </form>
@@ -81,8 +81,8 @@ const htmlFinalPart = `<div class="center">
 
     if (fileInput.files.length > 0) {
 
-      uploadButton.style.display = 'block';
-      clearButton.style.display = 'block';
+      uploadButton.style.display = 'inline-block';
+      clearButton.style.display = 'inline-block';
     } else {
 
       uploadButton.style.display = 'none';
