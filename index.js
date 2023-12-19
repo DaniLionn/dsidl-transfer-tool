@@ -58,9 +58,7 @@ const baseHTML = `<!DOCTYPE html>
   <img src="https://danilionn.github.io/danis-bot-website/assets/images/dsidl-transfer-tool-icon.png" width="32" height="32" style="padding-left: 5px">
     QR codes are meant to be scanned with the 
     <a href="https://github.com/Epicpkmn11/dsidl" target="_blank">
-      dsidl homebrew app
-    </a> 
-    for the DSi. 
+      dsidl homebrew app</a> for the DSi. 
     <img src="https://danilionn.github.io/danis-bot-website/assets/images/dsidl-transfer-tool-icon.png" width="32" height="32" style="padding-left: 5px">
   </h3>
   <p>
