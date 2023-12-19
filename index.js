@@ -61,17 +61,17 @@ const baseHTML = `<!DOCTYPE html>
       dsidl homebrew app</a> for the DSi. 
     <img src="https://danilionn.github.io/danis-bot-website/assets/images/dsidl-transfer-tool-icon.png" width="32" height="32" style="padding-left: 5px">
   </h3>
-  <p>
+  <p style="text-align:center;">
     Upload a file and it'll be turned into a QR Code that you can scan with dsidl to download to your DSi!
   </p>
-  <p>
+  <p style="text-align:center;">
     Uploaded files are deleted after being scanned and sent over, so QR Codes are one use only.
   </p>
   </div>
   <br>`;
 
-const htmlFinalPart = `<div class="center"> 
-    <form action="/upload" method="post" enctype="multipart/form-data">
+const htmlFinalPart = `<br><br><br><div class="center"> 
+    <form  style="text-align:center;" action="/upload" method="post" enctype="multipart/form-data">
      <input type="file" id="fileInput" name="file" onchange="showUploadButton()">
       <button type="submit" id="uploadButton" >Upload</button>
       <button type="button" id="clearButton" onclick="clearFileInput()">Clear Selection</button>
@@ -111,7 +111,7 @@ const htmlFinalPart = `<div class="center">
   </div>
   <br><br><br><br>
   <div class="center">  
-    <p>Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo!<img src="https://danilionn.github.io/danis-bot-website/assets/images/github-mark-white.png" width="25" height="25" style="padding-left: 5px"></a></p>
+    <p style="text-align:center;">Check out the <a href="https://github.com/DaniLionn/dsidl-transfer-tool">github repo!<img src="https://danilionn.github.io/danis-bot-website/assets/images/github-mark-white.png" width="25" height="25" style="padding-left: 5px"></a></p>
   </div>
 </body>`;
 var finalHTML = baseHTML;
