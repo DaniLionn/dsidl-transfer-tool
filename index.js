@@ -6,7 +6,7 @@ const multer = require("multer");
 
 const app = express();
 
-const baseURL = "https://dsidl-transfer-tool.dani-lionn.repl.co/";
+const baseURL = "https://dsidl-transfer-tool.glitch.me";
 
 const baseHTML = `<!DOCTYPE html>
 <head>
@@ -220,9 +220,9 @@ app.get("/", function (req, res) {
   }
 });
 
-app.listen(80, function (err) {
+app.listen(3000, function (err) {
   if (err) console.log(err);
-  console.log("Server listening on port 80");
+  console.log("Server listening on port 3000");
 });
 
 //delete any leftover uploaded files on startup
