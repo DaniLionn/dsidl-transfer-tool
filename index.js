@@ -125,7 +125,7 @@ function createQRCode(file) {
     QRCode.toDataURL(
       JSON.stringify([
         `QR Code for file ${file} was scanned!`,
-        `${baseURL}${file}`,
+        `${baseURL}/${file}`,
         "Thanks for downloading!",
       ]),
 
@@ -139,7 +139,7 @@ function createQRCode(file) {
 
           resolve();
         }
-      },
+      }
     );
   });
 }
